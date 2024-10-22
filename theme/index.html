@@ -377,84 +377,230 @@
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">New Orders</h4>
+                <div class="col-lg-15">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">New Orders</h4>
+                            <button class="btn btn-primary" onclick="showHistoryOverlay()">Show History</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Serial Number</th>
+                                            <th>Document Name</th>
+                                            <th>Recipient</th>
+                                            <th>Date Created</th>
+                                            <th>Modified</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span>0001</span></td>
+                                            <td>Letter of Resignation</td>
+                                            <td><span>Supreme Student Council</span></td>
+                                            <td><span>10/22/24</span></td>
+                                            <td><span>10 mins ago</span></td>
+                                            <td><span class="badge badge-success">Done</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span>0002</span></td>
+                                            <td>Project Proposal</td>
+                                            <td><span>Department Head</span></td>
+                                            <td><span>10/21/24</span></td>
+                                            <td><span>2 hours ago</span></td>
+                                            <td><span class="badge badge-warning">In Transit</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span>0003</span></td>
+                                            <td>Meeting Agenda</td>
+                                            <td><span>Staff Members</span></td>
+                                            <td><span>10/20/24</span></td>
+                                            <td><span>1 day ago</span></td>
+                                            <td><span class="badge badge-info">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span>0004</span></td>
+                                            <td>Expense Report</td>
+                                            <td><span>Finance Department</span></td>
+                                            <td><span>10/19/24</span></td>
+                                            <td><span>3 days ago</span></td>
+                                            <td><span class="badge badge-danger">Inactive</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Serial Number</th>
-                                                <th>Document Name</th>
-                                                <th>Reciepient</th>
-                                                <th>Date Created</th>
-                                                <th>Modified</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <span>0001</span>
-                                                </td>
-                                                <td>Letter of Resignation</td>
-                                                <td><span>Supreme Student Council</span></td>
-                                                <td><span>10/22/24</span></td>
-                                                <td><span>10 mins ago</span></td>
-                                                <td><span class="badge badge-success">Done</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>0001</span>
-                                                </td>
-                                                <td>Letter of Resignation</td>
-                                                <td><span>Supreme Student Council</span></td>
-                                                <td><span>10/22/24</span></td>
-                                                <td><span>10 mins ago</span></td>
-                                                <td><span class="badge badge-success">Done</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>0001</span>
-                                                </td>
-                                                <td>Letter of Resignation</td>
-                                                <td><span>Supreme Student Council</span></td>
-                                                <td><span>10/22/24</span></td>
-                                                <td><span>10 mins ago</span></td>
-                                                <td><span class="badge badge-info">Pending</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>0001</span>
-                                                </td>
-                                                <td>Letter of Resignation</td>
-                                                <td><span>Supreme Student Council</span></td>
-                                                <td><span>10/22/24</span></td>
-                                                <td><span>10 mins ago</span></td>
-                                                <td><span class="badge badge-danger">Inactive</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>0001</span>
-                                                </td>
-                                                <td>Letter of Resignation</td>
-                                                <td><span>Supreme Student Council</span></td>
-                                                <td><span>10/22/24</span></td>
-                                                <td><span>10 mins ago</span></td>
-                                                <td><span class="badge badge-warning">In Transit</span></td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
+                
+                            <!-- Card-Specific History Overlay -->
+                            <div class="history-overlay" id="historyOverlay">
+                                <div class="history-overlay-content">
+                                    <span class="history-close-btn" onclick="closeHistoryOverlay()">&times;</span>
+                                    <h4>History</h4>
+                                    <div class="widget-timeline">
+                                        <ul class="timeline">
+                                            <li>
+                                                <div class="timeline-badge primary"></div>
+                                                <a class="timeline-panel text-muted" href="#">
+                                                    <span>10 minutes ago</span>
+                                                    <h6 class="m-t-5">Youtube, a video-sharing website, goes live.</h6>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge warning"></div>
+                                                <a class="timeline-panel text-muted" href="#">
+                                                    <span>20 minutes ago</span>
+                                                    <h6 class="m-t-5">Mashable, a news website and blog, goes live.</h6>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge danger"></div>
+                                                <a class="timeline-panel text-muted" href="#">
+                                                    <span>30 minutes ago</span>
+                                                    <h6 class="m-t-5">Google acquires Youtube.</h6>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge success"></div>
+                                                <a class="timeline-panel text-muted" href="#">
+                                                    <span>15 minutes ago</span>
+                                                    <h6 class="m-t-5">StumbleUpon is acquired by eBay.</h6>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <style>
+                    .history-overlay {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 0;
+                        overflow: hidden;
+                        z-index: 2;
+                        transition: height 0.5s ease; /* Smooth transition */
+                    }
+                
+                    .history-overlay-content {
+                        position: relative;
+                        padding: 20px;
+                        background-color: rgb(248, 246, 246);
+                        border-radius: 10px 10px 0 0;
+                        text-align: center;
+                        width: 50%;
+                        position: absolute;
+                        left: 30rem;
+                        border: 1px solid black; /* Thin black border */
+                    }
+
+                
+                    h4 {
+                        margin-bottom: 10px;
+                    }
+                
+                    .history-close-btn {
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
+                        font-size: 30px;
+                        cursor: pointer;
+                        color: #aaa;
+                    }
+                
+                    .widget-timeline {
+                        margin-top: 20px;
+                    }
+                
+                    .timeline {
+                        list-style: none;
+                        padding-left: 0;
+                        position: relative;
+                    }
+                
+                    .timeline li {
+                        position: relative;
+                        margin-bottom: 20px;
+                        padding-left: 30px;
+                    }
+                
+                    .timeline li:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 15px;
+                        width: 2px;
+                        height: 100%;
+                        background-color: #e9ecef;
+                    }
+                
+                    .timeline-badge {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: #007bff;
+                    }
+                
+                    .timeline-badge.primary {
+                        background-color: #007bff;
+                    }
+                
+                    .timeline-badge.warning {
+                        background-color: #ffc107;
+                    }
+                
+                    .timeline-badge.danger {
+                        background-color: #dc3545;
+                    }
+                
+                    .timeline-badge.success {
+                        background-color: #28a745;
+                    }
+                
+                    .timeline-panel {
+                        padding: 10px 20px;
+                        background: #f7f7f7;
+                        border-radius: 5px;
+                        border: 1px solid #ddd;
+                    }
+                
+                    .timeline-panel:hover {
+                        background-color: #e9ecef;
+                    }
+                
+                    .timeline h6 {
+                        margin-top: 5px;
+                        font-size: 16px;
+                    }
+                
+                    .timeline span {
+                        font-size: 12px;
+                        color: #6c757d;
+                    }
+                </style>
+                
+                <script>
+                    function showHistoryOverlay() {
+                        let historyOverlay = document.getElementById('historyOverlay');
+                        historyOverlay.style.height = '100%'; // Change height to cover the card body
+                    }
+                
+                    function closeHistoryOverlay() {
+                        let historyOverlay = document.getElementById('historyOverlay');
+                        historyOverlay.style.height = '0'; // Slide it back down
+                    }
+                </script>
+                
+                
                 
 
             </div>
